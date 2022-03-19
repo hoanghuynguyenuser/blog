@@ -24,10 +24,13 @@ app.get('/', (req, res) => {
   res.render('home'); //move home into {{{body}}}
 });
 app.get('/news', (req, res) => {
+  console.log(req.query)
   res.render('news'); 
 });
 app.get('/search', (req, res) => {
-  console.log('############', req.query.q)
+  res.render('search'); 
+});
+app.post('/search', (req, res) => {
   res.render('search'); 
 });
 
