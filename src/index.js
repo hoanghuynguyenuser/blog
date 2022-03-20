@@ -13,6 +13,9 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 // HTTP logger
 app.use(morgan('combined'))
 
@@ -31,7 +34,8 @@ app.get('/search', (req, res) => {
   res.render('search'); 
 });
 app.post('/search', (req, res) => {
-  res.render('search'); 
+  console.log('###########******',req.body)
+  res.send('')
 });
 
 app.listen(port, () => {
